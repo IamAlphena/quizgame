@@ -1,0 +1,33 @@
+Click start button
+	timer starts 
+	presented with a question
+
+answer question
+	presented with another question
+
+if question incorrect
+	time subtracted 
+
+if no more questions or timer 0
+	game over
+		ask for user initials
+		save initial and score
+
+
+
+
+
+HTML area
+Start Page
+	start button
+	title with explanation
+Question page
+	timer area
+	Question area
+	answer area - 4 answer buttons
+		a
+		b
+		c
+		d
+	score page
+	
