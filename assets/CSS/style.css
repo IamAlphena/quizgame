@@ -17,6 +17,21 @@ body {
     color: #EBEBEB;
 }
 
+p{
+    font-size: 26px;
+}
+
+h1{
+    font-size: 50px;
+}
+
+button{
+    background-color: #6F4A8E;
+    color: #EBEBEB;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 5px;
+}
 
 /****
 Start Page
@@ -32,8 +47,21 @@ Start Page
 Quiz Pages
 ****/
 
-
+.trivia{
+    width: 75%;
+    margin: auto;
+    border: 2px solid purple;
+    text-align: center;
+    display: none;
+}
 
 /****
 High Scores
 ****/
+
+.scorecard{
+    width: 75%;
+    margin: auto;
+    border: 2px solid purple;
+    text-align: center;
+}
