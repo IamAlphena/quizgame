@@ -1,0 +1,39 @@
+/**** 
+Reference Information
+
+Mid Purple : #6F4A8E
+Dark Purple: #221F3B 
+Off Black: #050505
+Off White: #EBEBEB
+
+****/
+
+
+/****
+Base Attributes
+****/
+body {
+    background-color: #221F3B;
+    color: #EBEBEB;
+}
+
+
+/****
+Start Page
+****/
+.info{
+    width: 75%;
+    margin:auto;
+    border: 2px solid purple;
+    text-align: center;
+}
+
+/****
+Quiz Pages
+****/
+
+
+
+/****
+High Scores
+****/

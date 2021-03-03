@@ -13,9 +13,7 @@ if no more questions or timer 0
 		ask for user initials
 		save initial and score
 
-
-
-
+Details: 
 
 HTML area
 Start Page
@@ -31,3 +29,26 @@ Question page
 		d
 	score page
 	
+PROGRAM LOGIC
+start button
+    a timer starts  
+    presented with question1 text
+    presented with question1 answer buttons
+click on a question answer button
+    if that was last question
+        game is over
+            diplay game over
+            calculate userScore
+            ask user for initials
+                save user intials and userScore together
+    if answer incorrect
+        time is subtracted from the clock
+    present next question
+        question[i+1] text
+        question[i+1] answer buttons
+SECTIONS
+Main page
+    Timer area
+    Question area
+    Link to view High Scores
+High Scores Page    
