@@ -20,7 +20,7 @@ var questions = [
         correctAnswer: "//"
     },
     {
-        ask: "What is a media query used for in CSS?"
+        ask: "What is a media query used for in CSS?",
         answers: ["Background Color","CSS If Statement","Lorem ipsum","Mobile Responsiveness"],
         correctAnswer: "Mobile Responsiveness"
     },
@@ -30,7 +30,7 @@ var questions = [
         correctAnswer: "Base Structure"
     },
     {
-        ask: "What does the div tag do?"
+        ask: "What does the div tag do?",
         answers: ["Makes the code easier to read", "Changes the title of your page","Creates a defined space","Adds Lorem Ipsum to the page"],
         correctAnswer: "Creates a defined space"
     }
@@ -42,8 +42,11 @@ var trivia = document.getElementsByClassName("trivia");
 var score = document.getElementsByClassName("scorecard");
 var btn = document.querySelector("#start");
 var timeSet = document.querySelector(".time");
+var currentAsk = document.querySelector(".currentAsk")
 
 var timeLeft = 60;
+var currentQuestion = 0;
+
 
 /*
 Functions
@@ -72,10 +75,20 @@ function startQuiz(){
 
     setTime();
 
-    //display array answers
+    //display questions, with it's properties displayed on the page
+    if (currentQuestion < questions.length) {   
+        currentAsk.textContent = questions[currentQuestion].ask;}
 
+        
+
+    // for (var i = 0; i < questions.length; i++) {
+    //     console.log(questions[0].ask)}
+    
+
+    // hit button, the next ask in array questions is shown
 
     //when answer is clicked, reveal next question
+    
 
     //if answer clicked !== correct answer 
     //subtract time
