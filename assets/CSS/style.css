@@ -33,6 +33,10 @@ button{
     padding: 5px;
 }
 
+#start{
+    border: 1px solid black;
+}
+
 /****
 Start Page
 ****/
