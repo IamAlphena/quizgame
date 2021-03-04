@@ -37,10 +37,11 @@ var score = document.getElementsByClassName("scorecard");
 var btn = document.querySelector("#start");
 var timeSet = document.querySelector(".time");
 var currentAsk = document.querySelector(".currentAsk")
+var answerChoices = document.querySelector("#answerChoices")
 
 var timeLeft = 60;
 var currentQuestion = 0;
-
+var choices = "";
 
 /*
 Functions
@@ -56,34 +57,11 @@ function startQuiz(){
     info[0].style.display = "none" ;
      
     // timer starts
-
-    function setTime(){
-    var timerInterval = setInterval(function(){
-        timeLeft--;
-        timeSet.textContent = "Time Remaining: " + timeLeft;
-
-        if (timeLeft === 0){
-        clearInterval(timerInterval);}
-    }, 1000);
-    }
-
     setTime();
 
     //display questions, with it's properties displayed on the page
-    if (currentQuestion < questions.length) {   
-        currentAsk.textContent = questions[currentQuestion].ask;}
-
-
-
-    // for (var i = 0; i < questions.length; i++) {
-    //     console.log(questions[0].ask)}
-    
-
-    // hit button, the next ask in array questions is shown
-
-    //when answer is clicked, reveal next question
-    
-
+    askQuestion();
+ 
     //if answer clicked !== correct answer 
     //subtract time
 
@@ -95,6 +73,43 @@ function startQuiz(){
 
 }
 
+function setTime(){
+    var timerInterval = setInterval(function(){
+        timeLeft--;
+        timeSet.textContent = "Time Remaining: " + timeLeft;
+
+        if (timeLeft === 0){
+        clearInterval(timerInterval);}
+    }, 1000);
+    }
+
+function askQuestion(){
+        
+        
+    var triviaQuestion = questions[currentQuestion];
+    currentAsk.textContent = triviaQuestion.ask;
+        
+    // if (currentQuestion < questions.length) {   
+    //     currentAsk.textContent = questions[currentQuestion].ask;}
+
+    //populate array choices with questions[currentQuestion].answers
+    choices = triviaQuestion.answers;
+    console.log(choices)
+
+    choices.forEach(function (item) {
+        var choiceButton = document.createElement("button");
+        choiceButton.textContent = item;
+        answerChoices.append(choiceButton);
+    });
+
+    
+    //turn array choices into buttons inside answerChoices
+    
+    // hit button, the next ask in array questions is shown
+
+    //when answer is clicked, reveal next question
+    
+    }
 //endGame 
 
 // display div class scorecard
