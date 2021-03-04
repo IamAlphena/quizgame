@@ -131,15 +131,17 @@ function endGame() {
 
     // hide div trivia
     trivia[0].style.display = "none";
+
+    // show score of time remaining
+
+    // record initials with score to local storage
+
+    // show scores that have been saved. 
+
 }
 
-// display div class scorecard
 
-// show score of time remaining
 
-// record initials with score to local storage
-
-// show scores that have been saved. 
 
 
 
