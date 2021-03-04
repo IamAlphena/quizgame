@@ -4,12 +4,6 @@ Global Variables
 
 var questions = [
     {
-        ask: "What is Alphena's Cat's name?",
-        answers: ["Deku", "Ondore", "Mew", "Tom"],
-        correctAnswer: "Mew" 
-    },
-
-    {
         ask: "What is the type of capitalization that Javascript uses?",
         answers: ["Title Case","Camel Case", "Sentance Case", "Snake Case"],
         correctAnswer: "Camel Case"
@@ -79,7 +73,7 @@ function startQuiz(){
     if (currentQuestion < questions.length) {   
         currentAsk.textContent = questions[currentQuestion].ask;}
 
-        
+
 
     // for (var i = 0; i < questions.length; i++) {
     //     console.log(questions[0].ask)}
