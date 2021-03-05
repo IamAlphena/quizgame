@@ -36,9 +36,10 @@ var trivia = document.getElementsByClassName("trivia");
 var score = document.getElementsByClassName("scorecard");
 var btn = document.querySelector("#start");
 var timeSet = document.querySelector(".time");
-var currentAsk = document.querySelector(".currentAsk")
-var answerChoices = document.querySelector("#answerChoices")
-var currentScore = document.querySelector("#finalScore")
+var currentAsk = document.querySelector(".currentAsk");
+var answerChoices = document.querySelector("#answerChoices");
+var currentScore = document.querySelector("#finalScore");
+var username = document.getElementById("initials");
 var submit = document.querySelector("#submit");
 
 var timeLeft = 60;
@@ -138,40 +139,47 @@ function endGame() {
     var finalScore = timeLeft;
     currentScore.textContent = "Your Score: " + finalScore;
 
-    // button to save scores
+    //record initials typed
 
-    saveScore();
+        // console.log(initials.value)
+    // });
 
     grabScores();
 }
 
-function saveScore(event){
-    // record initials with score to local storage
-   
-    
-    
-    event.preventDefault();
-    console.log(event)
+// localStorage.setItem("highScores", JSON.stringify([]));
 
-    var initials = document.querySelector("#input").value;
+// var highscores = JSON.parse(localStorage.getItem("highScores"))
+// console.log(highscores)
+
+
+function saveScore(event){
+    //prevent default (refresh)
+    event.preventDefault();
+   // record initials with score to local storage
+
+
 
     var currentScore = {
         score: finalScore,
-        who: initials,
+        name: username.value,
     }
 
 
-console.log(finalScore);
-console.log(initials);
-console.log (currentScore);
+    // highScores.push(currentScore);
+    console.log(currentScore);
+    
+
+// console.log(finalScore);
+// console.log(initials);
+// console.log (currentScore);
 
 }
 
 function grabScores(){
     // show scores that have been saved. 
 
-    var highscores = JSON.parse(localStorage.getItem("highScores"))
-    // console.log(highscores)
+    
 
 }
 
@@ -186,4 +194,4 @@ Events
 //when start is clicked run functon startQuiz
 
 btn.addEventListener('click', startQuiz);
-submit.addEventListener('click', saveScore)
+submit.addEventListener('click', saveScore);
