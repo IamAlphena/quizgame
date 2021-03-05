@@ -38,6 +38,8 @@ var btn = document.querySelector("#start");
 var timeSet = document.querySelector(".time");
 var currentAsk = document.querySelector(".currentAsk")
 var answerChoices = document.querySelector("#answerChoices")
+var currentScore = document.querySelector("#finalScore")
+var submit = document.querySelector("#submit");
 
 var timeLeft = 60;
 var currentQuestion = 0;
@@ -86,42 +88,42 @@ function setTime() {
 
 function askQuestion() {
 
-// if statement able to end quiz
+    // if statement able to end quiz
     if (timeLeft === 0 || currentQuestion === questions.length) {
         endGame();
         return;
     }
 
-var triviaQuestion = questions[currentQuestion];
-currentAsk.textContent = triviaQuestion.ask;
+    var triviaQuestion = questions[currentQuestion];
+    currentAsk.textContent = triviaQuestion.ask;
 
-//populate array choices with questions[currentQuestion].answers
-choices = triviaQuestion.answers;
-console.log(choices)
-//turn array choices into buttons inside answerChoices
-choices.forEach(function (item) {
-    var choiceButton = document.createElement("button");
-    choiceButton.textContent = item;
-    choiceButton.id = item;
-    answerChoices.append(choiceButton);
-    // hit button, the next ask in array questions is shown
-    choiceButton.addEventListener('click', e => {
-        console.log(e.target.id)
-        // check if button id === correctAnswer
-        //if !== then timeLeft--5
-        if (e.target.id !== triviaQuestion.correctAnswer) {
-            console.log("wrong");
-            timeLeft -= 5;
-        }
-        // next question
-        currentQuestion++;
-        answerChoices.innerHTML = "";
-        askQuestion();
-    })
+    //populate array choices with questions[currentQuestion].answers
+    choices = triviaQuestion.answers;
+    console.log(choices)
+    //turn array choices into buttons inside answerChoices
+    choices.forEach(function (item) {
+        var choiceButton = document.createElement("button");
+        choiceButton.textContent = item;
+        choiceButton.id = item;
+        answerChoices.append(choiceButton);
+        // hit button, the next ask in array questions is shown
+        choiceButton.addEventListener('click', e => {
+            console.log(e.target.id)
+            // check if button id === correctAnswer
+            //if !== then timeLeft--5
+            if (e.target.id !== triviaQuestion.correctAnswer) {
+                console.log("wrong");
+                timeLeft -= 5;
+            }
+            // next question
+            currentQuestion++;
+            answerChoices.innerHTML = " ";
+            askQuestion();
+        })
 
 
-});
-    }
+    });
+}
 
 
 function endGame() {
@@ -133,13 +135,45 @@ function endGame() {
     trivia[0].style.display = "none";
 
     // show score of time remaining
+    var finalScore = timeLeft;
+    currentScore.textContent = "Your Score: " + finalScore;
 
+    // button to save scores
+
+    saveScore();
+
+    grabScores();
+}
+
+function saveScore(event){
     // record initials with score to local storage
+   
+    
+    
+    event.preventDefault();
+    console.log(event)
 
-    // show scores that have been saved. 
+    var initials = document.querySelector("#input").value;
+
+    var currentScore = {
+        score: finalScore,
+        who: initials,
+    }
+
+
+console.log(finalScore);
+console.log(initials);
+console.log (currentScore);
 
 }
 
+function grabScores(){
+    // show scores that have been saved. 
+
+    var highscores = JSON.parse(localStorage.getItem("highScores"))
+    // console.log(highscores)
+
+}
 
 
 
@@ -152,7 +186,4 @@ Events
 //when start is clicked run functon startQuiz
 
 btn.addEventListener('click', startQuiz);
-
-/*
-Entry Points
-*/
+submit.addEventListener('click', saveScore)

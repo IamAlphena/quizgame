@@ -13,7 +13,9 @@
 
     <div class="info">
         <h1>Coding Quiz</h1>
-        <p>Quizzes are more fun when they are games! Test your knowledge of Javascript, CSS, and HTML by racing the clock to get a high score!<br> Careful! Wrong answers will take more time from the clock. <br> Good Luck!</p>
+        <p>Quizzes are more fun when they are games! Test your knowledge of Javascript, CSS, and HTML by racing the
+            clock to get a high score!<br> Careful! Wrong answers will take more time from the clock. <br> Good Luck!
+        </p>
         <button id="start">Start</button>
     </div>
 
@@ -24,15 +26,17 @@
         </div>
         <p class="currentAsk"> </p>
         <div id="answerChoices">
-         
+
         </div>
     </div>
 
     <div class="scorecard">
         <h1>It's Over</h1>
-        <p>Your score: </p>
-        <p>Your Initials: </p><input> </input>
-        <p> </p> <button> Submit</button>
+        <p id="finalScore"> </p>
+        <form>
+           <input id="initials" name="initials" type="text" placeholder="Your Initials"> </input>
+            <p> </p> <button id="submit"> Submit</button>
+        </form>
         <p>Top Scores: </p>
     </div>
     <script src="assets/js/script.js"></script>
