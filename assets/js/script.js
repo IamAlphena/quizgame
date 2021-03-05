@@ -139,53 +139,50 @@ function endGame() {
 
     // show score of time remaining
     var finalScore = timeLeft;
-    currentScore.textContent = "Your Score: " + finalScore;
-
- 
-
-    submit.addEventListener('click', saveScore);
-
-    function saveScore(event){
-        //prevent default (refresh)
-        event.preventDefault();
-       // record initials with score to local storage
-    
-        var endScore = {
-            score: finalScore,
-            name: username.value,
-        }
-    
-    
-        highScores.push(endScore);
-        console.log(endScore);
-        
-        localStorage.setItem('highScores', JSON.stringify(highScores));
-    
-    //     grabScores();
-    }
-    
-   
+    currentScore.textContent = "Your Score: " + finalScore;   
 }
 
-// function grabScores(){
-//      show scores that have been saved. 
+function saveScore(event){
+    //prevent default (refresh)
+    event.preventDefault();
+   // record initials with score to local storage
 
-//     console.log(highScores)
+    var parseScore = finalScore.textContent.split(": ")
+
+    var endScore = {
+        score: parseInt(parseScore[1]),
+        name: username.value,
+    }
+
+    highScores.push(endScore);
+   
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+
+    var scoreList = JSON.parse(localStorage.getItem('highScores'));
+
+    console.log(scoreList);
     
+    for (let index = 0; index < scoreList.length; index++) {
+         console.log(scoreList[index]);
+        
+        var score = scoreList[index].score
+        var name =  scoreList[index].name 
+        var h1 = document.createElement("h1");
+        var p = document.createElement("p");
 
-//    getScore = JSON.parse(localStorage.getItem("highScores")) || [];
+        h1.setAttribute("class", "red")
 
-//    getScores.forEach(function(){
-//        recentScores.textContent = getScores.name;
-//    })
+        h1.textContent = name;
+        p.textContent = score;
 
-// }
+        recentScores.append(h1, p)
+    }
+}
 
 
 /*
  Events
 */
 
-//when start is clicked run functon startQuiz
-
 btn.addEventListener('click', startQuiz);
+submit.addEventListener('click', saveScore);
