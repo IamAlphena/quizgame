@@ -41,6 +41,8 @@ var answerChoices = document.querySelector("#answerChoices");
 var currentScore = document.querySelector("#finalScore");
 var username = document.getElementById("initials");
 var submit = document.querySelector("#submit");
+var recentScores = document.querySelector("#recentScores");
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 var timeLeft = 60;
 var currentQuestion = 0;
@@ -100,7 +102,7 @@ function askQuestion() {
 
     //populate array choices with questions[currentQuestion].answers
     choices = triviaQuestion.answers;
-    console.log(choices)
+    // console.log(choices)
     //turn array choices into buttons inside answerChoices
     choices.forEach(function (item) {
         var choiceButton = document.createElement("button");
@@ -109,11 +111,11 @@ function askQuestion() {
         answerChoices.append(choiceButton);
         // hit button, the next ask in array questions is shown
         choiceButton.addEventListener('click', e => {
-            console.log(e.target.id)
+            // console.log(e.target.id)
             // check if button id === correctAnswer
             //if !== then timeLeft--5
             if (e.target.id !== triviaQuestion.correctAnswer) {
-                console.log("wrong");
+                // console.log("wrong");
                 timeLeft -= 5;
             }
             // next question
@@ -139,47 +141,41 @@ function endGame() {
     var finalScore = timeLeft;
     currentScore.textContent = "Your Score: " + finalScore;
 
-    //record initials typed
+ 
 
-        // console.log(initials.value)
-    // });
+    submit.addEventListener('click', saveScore);
 
-    grabScores();
-}
-
-// localStorage.setItem("highScores", JSON.stringify([]));
-
-// var highscores = JSON.parse(localStorage.getItem("highScores"))
-// console.log(highscores)
-
-
-function saveScore(event){
-    //prevent default (refresh)
-    event.preventDefault();
-   // record initials with score to local storage
-
-
-
-    var currentScore = {
-        score: finalScore,
-        name: username.value,
-    }
-
-
-    // highScores.push(currentScore);
-    console.log(currentScore);
+    function saveScore(event){
+        //prevent default (refresh)
+        event.preventDefault();
+       // record initials with score to local storage
+    
+        var endScore = {
+            score: finalScore,
+            name: username.value,
+        }
+    
+    
+        highScores.push(endScore);
+        console.log(endScore);
+        
+        localStorage.setItem('highScores', JSON.stringify(highScores));
     
 
-// console.log(finalScore);
-// console.log(initials);
-// console.log (currentScore);
-
+    }
+    grabScores();
+   
 }
+
+
+
 
 function grabScores(){
     // show scores that have been saved. 
 
+    console.log(highScores)
     
+    recentScores.textContent = highScores.name + " : " + highScores.score;
 
 }
 
@@ -194,4 +190,3 @@ Events
 //when start is clicked run functon startQuiz
 
 btn.addEventListener('click', startQuiz);
-submit.addEventListener('click', saveScore);
