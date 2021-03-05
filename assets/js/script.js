@@ -161,30 +161,29 @@ function endGame() {
         
         localStorage.setItem('highScores', JSON.stringify(highScores));
     
-
+    //     grabScores();
     }
-    grabScores();
+    
    
 }
 
+// function grabScores(){
+//      show scores that have been saved. 
 
-
-
-function grabScores(){
-    // show scores that have been saved. 
-
-    console.log(highScores)
+//     console.log(highScores)
     
-    recentScores.textContent = highScores.name + " : " + highScores.score;
 
-}
+//    getScore = JSON.parse(localStorage.getItem("highScores")) || [];
 
+//    getScores.forEach(function(){
+//        recentScores.textContent = getScores.name;
+//    })
 
-
+// }
 
 
 /*
-Events
+ Events
 */
 
 //when start is clicked run functon startQuiz
