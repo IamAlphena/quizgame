@@ -5,11 +5,11 @@ Javascript, CSS, HTML Quiz that is interactive and saves your high score!
 
 ## Preview
 
-![Preview Image](assets/images/quiz1.png)
-![Preview Image](assets/images/quiz2.png)
+![Preview Image](https://github.com/IamAlphena/quizgame/blob/main/assets/images/quiz1.PNG?raw=true)
+![Preview Image](https://github.com/IamAlphena/quizgame/blob/main/assets/images/quiz2.PNG?raw=true)
 
 ## Links
-Visit the site at : (url)
+Visit the site at : https://iamalphena.github.io/quizgame/index.html
 
 ## Objectives
 Design and impliment an interactive quiz  with the following criteria  
