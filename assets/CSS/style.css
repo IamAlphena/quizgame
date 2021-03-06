@@ -68,5 +68,8 @@ High Scores
 }
 
 .red{
-    color: red;
+   width: 25%;
+   margin: auto;
+   text-align: center;
+   padding: 15px;
 }

@@ -66,16 +66,6 @@ function startQuiz() {
 
     //display questions, with it's properties displayed on the page
     askQuestion();
-
-    //if answer clicked !== correct answer 
-    //subtract time
-
-    //if timer === 0 end game
-
-    // if no more questions and timer > 0 end game
-
-    // record time remaining as score
-
 }
 
 function setTime() {
@@ -159,11 +149,8 @@ function saveScore(event){
     localStorage.setItem('highScores', JSON.stringify(highScores));
 
     var scoreList = JSON.parse(localStorage.getItem('highScores'));
-
-    console.log(scoreList);
     
     for (let index = 0; index < scoreList.length; index++) {
-         console.log(scoreList[index]);
         
         var score = scoreList[index].score
         var name =  scoreList[index].name 
@@ -171,9 +158,10 @@ function saveScore(event){
         var p = document.createElement("p");
 
         h1.setAttribute("class", "red")
+        p.setAttribute("class", "red")
 
         h1.textContent = name;
-        p.textContent = score;
+        p.textContent = "got " + score;
 
         recentScores.append(h1, p)
     }

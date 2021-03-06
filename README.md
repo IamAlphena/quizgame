@@ -19,6 +19,7 @@ Design and impliment an interactive quiz  with the following criteria
 * Time remaining is your final score
 * Game over when timer is 0 or there are no questions remaining
 * Saves score to local storage with your initials
+* Displays all saved scores after new score saved
 
 ## Systems Used
 * HTML  
